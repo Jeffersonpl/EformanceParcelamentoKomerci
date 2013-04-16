@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<layout>
+    
+    <Eformance_KomerciParc_pay_success translate="label">
+        <label>Transação registrada com sucesso</label>
+		<reference name="left">
+		            <block type="catalog/navigation" name="catalog.leftnav" after="currency" template="catalog/navigation/left.phtml"/>
+		  </reference>	
+		  <reference name="root">
+            <action method="setTemplate"><template>page/3columns_view.phtml</template></action>
+        </reference>
+          <reference name="content">
+            <block type="Eformance_KomerciParc/success" name="Eformance_KomerciParc.success" template="Eformance_KomerciParc/success.phtml"/>
+        </reference>
+    </Eformance_KomerciParc_pay_success>
+    
+    <Eformance_KomerciParc_pay_installments translate="label">
+        <label>Tabela de parcelamento</label>
+        <reference name="root">
+            <action method="setTemplate"><template>Eformance_KomerciParc/installments_template.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="Eformance_KomerciParc/installments" name="Eformance_KomerciParc_installments" as="Eformance_KomerciParc_installments" />
+        </reference>
+    </Eformance_KomerciParc_pay_installments>
+
+    <sales_order_view>
+        <reference name="sales.order.view">
+            <block type="Eformance_KomerciParc/paylink" name="Eformance_KomerciParc_paylink" as="Eformance_KomerciParc_paylink" />
+        </reference>
+    </sales_order_view>
+
+    <catalog_product_view>
+        <reference name="product.info">
+            <block type="Eformance_KomerciParc/installments" name="Eformance_KomerciParc_installments" as="Eformance_KomerciParc_installments" />
+        </reference>
+    </catalog_product_view>
+
+</layout>
